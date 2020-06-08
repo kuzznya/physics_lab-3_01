@@ -1,4 +1,4 @@
-package com.kuzznya.lab.service
+package com.kuzznya.lab.model
 
 class Point (
     var x: Double,
