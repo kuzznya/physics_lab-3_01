@@ -7,16 +7,16 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="630.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kuzznya.lab.controller.MainController">
    <children>
-      <HBox alignment="CENTER" layoutY="378.0" spacing="30.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutY="378.0" spacing="30.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button mnemonicParsing="false" onAction="#loadData" text="Load data" />
             <Button mnemonicParsing="false" onAction="#saveData" text="Save data" />
             <Button mnemonicParsing="false" onAction="#exportImage" text="Export image" />
          </children>
       </HBox>
-      <AnchorPane fx:id="canvasPane" layoutX="21.0" layoutY="131.0" prefHeight="200.0" prefWidth="848.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane fx:id="canvasPane" layoutX="21.0" layoutY="131.0" prefHeight="200.0" prefWidth="848.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Canvas height="340.0" width="630.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Canvas height="340.0" width="630.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </children>
