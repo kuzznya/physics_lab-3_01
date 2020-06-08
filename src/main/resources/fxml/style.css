@@ -1,0 +1,84 @@
+.root {
+    -fx-font-family: Helvetica;
+}
+
+.button {
+    -fx-pref-height: 3em;
+    -fx-background-color: rgb(150, 210, 210);
+    -fx-text-fill: rgb(44, 62, 80);
+    -fx-border-radius: 5px;
+    -fx-font-size: 1.1em;
+}
+
+.button:hover {
+    -fx-background-color: rgb(100, 180, 180);
+}
+
+.button:pressed {
+    -fx-background-color: rgb(50, 150, 150);
+}
+
+.button:cancel {
+    -fx-background-color: rgb(230, 130, 130);
+}
+
+.button:cancel:hover {
+    -fx-background-color: rgb(250, 100, 100);
+}
+
+.button:cancel:pressed {
+    -fx-background-color: rgb(255, 80, 80);
+}
+
+.menu-button {
+    -fx-pref-height: 3em;
+    -fx-border-radius: 5px;
+    -fx-background-color: rgb(150, 210, 210);
+    -fx-font-size: 1.1em;
+}
+
+.menu-button:hover {
+    -fx-background-color: rgb(100, 180, 180);
+}
+
+.menu-button:pressed {
+    -fx-background-color: rgb(50, 150, 150);
+}
+
+.menu-item {
+    -fx-background-color: lightgrey;
+    -fx-font-size: 1.1em;
+}
+
+.menu-item:hover {
+    -fx-background-color: rgb(64, 92, 110);
+}
+
+.menu-item:pressed {
+    -fx-background-color: rgb(44, 62, 70);
+}
+
+.menu {
+    -fx-background-color: lightgrey;
+}
+
+.menu:hover {
+    -fx-background-color: rgb(64, 92, 110);
+}
+
+.menu:pressed {
+    -fx-background-color: rgb(44, 62, 70);
+}
+
+.menu-bar {
+    -fx-background-color: lightgrey;
+}
+
+.table-view .column-header {
+    -fx-background-color: rgb(44, 62, 70);
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

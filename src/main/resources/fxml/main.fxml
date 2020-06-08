@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="630.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kuzznya.lab.controller.MainController">
+   <children>
+      <HBox alignment="CENTER" layoutY="378.0" spacing="30.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="loadDataButton" mnemonicParsing="false" text="Load data" />
+            <Button fx:id="saveDataButton" mnemonicParsing="false" text="Save data" />
+            <Button fx:id="exportImageButton" mnemonicParsing="false" text="Export image" />
+         </children>
+      </HBox>
+      <AnchorPane layoutX="21.0" layoutY="131.0" prefHeight="200.0" prefWidth="848.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Canvas height="340.0" width="630.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
