@@ -42,7 +42,7 @@ class ComputationDisplay (
                 )
                 data.last().add(tensionValue)
 
-                val hue = min(((tensionValue - minTension) / (maxTension - minTension)).pow(1 / 1.8) * (360.0 - 240.0) + 240.0, 360.0)
+                val hue = min(((tensionValue - minTension) / (maxTension - minTension)).pow(1 / 1.2) * (360.0 - 240.0) + 240.0, 360.0)
                 ctx.fill = Color.hsb(hue, 1.0, 1.0)
                 ctx.fillRect(x.toDouble() - 1.5, y.toDouble() - 1.5, 3.0, 3.0)
             }
@@ -83,7 +83,7 @@ class ComputationDisplay (
         for (y in data.indices) {
             for (x in data[y].indices) {
                 val tensionValue = data[y][x]
-                val hue = min(((tensionValue - minTension) / (maxTension - minTension)).pow(1 / 1.8) * (360.0 - 240.0) + 240.0, 360.0)
+                val hue = min(((tensionValue - minTension) / (maxTension - minTension)).pow(1 / 1.2) * (360.0 - 240.0) + 240.0, 360.0)
                 ctx.fill = Color.hsb(hue, 1.0, 1.0)
                 ctx.fillRect(x / data[y].size.toDouble() * canvas.width - canvas.width / data[y].size / 2.0,
                     y / data.size.toDouble() * canvas.height - canvas.height / data.size / 2.0,
