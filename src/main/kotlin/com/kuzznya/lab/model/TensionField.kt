@@ -15,11 +15,11 @@ class TensionField (
             .minBy { (it.x - x).pow(2) + (it.y - y).pow(2) }
             ?: return 0.0
 
-        val pointBeforeByY = potentialData.keys.filter { it.y < y && it != pointBeforeByX }
+        val pointBeforeByY = potentialData.keys.filter { it.y < y }
             .minBy { (it.x - x).pow(2) + (it.y - y).pow(2) }
             ?: return 0.0
 
-        val pointAfterByY = potentialData.keys.filter { it.y > y && it != pointAfterByX }
+        val pointAfterByY = potentialData.keys.filter { it.y > y }
             .minBy { (it.x - x).pow(2) + (it.y - y).pow(2) }
             ?: return 0.0
 
