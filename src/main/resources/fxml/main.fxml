@@ -10,8 +10,7 @@
       <HBox alignment="CENTER" layoutY="378.0" spacing="30.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button fx:id="loadDataButton" mnemonicParsing="false" onAction="#loadData" text="Load data" />
-            <Button mnemonicParsing="false" onAction="#saveData" text="Save data" />
-            <Button mnemonicParsing="false" onAction="#exportImage" text="Export image" />
+            <Button fx:id="exportImageButton" disable="true" mnemonicParsing="false" onAction="#exportImage" text="Export image" />
          </children>
       </HBox>
       <AnchorPane fx:id="canvasPane" layoutX="21.0" layoutY="131.0" prefHeight="200.0" prefWidth="848.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">

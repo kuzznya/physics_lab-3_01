@@ -7,22 +7,30 @@ import com.kuzznya.lab.service.DataReader
 import com.kuzznya.lab.service.Router
 import com.kuzznya.lab.view.ResizableCanvas
 import javafx.application.Platform
+import javafx.embed.swing.SwingFXUtils
 import javafx.fxml.FXML
+import javafx.scene.SnapshotParameters
 import javafx.scene.canvas.Canvas
 import javafx.scene.control.Button
 import javafx.scene.layout.AnchorPane
+import javafx.scene.paint.Color
 import javafx.stage.FileChooser
 import java.io.File
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.function.Supplier
+import javax.imageio.ImageIO
 
 class MainController {
     @FXML
     private lateinit var canvasPane: AnchorPane
     @FXML
     private lateinit var loadDataButton: Button
+    @FXML
+    private lateinit var exportImageButton: Button
+
+    private lateinit var canvas: Canvas
 
     private lateinit var computationTask: CompletableFuture<Unit>
 
@@ -52,8 +60,9 @@ class MainController {
         Router.primaryStage.title = file.name
         Router.primaryStage.isResizable = false
         loadDataButton.isDisable = true
+        exportImageButton.isDisable = true
 
-        val canvas = ResizableCanvas()
+        canvas = ResizableCanvas()
         canvasPane.children.clear()
         canvasPane.children.add(canvas)
         canvas.widthProperty().bind(canvasPane.widthProperty())
@@ -70,10 +79,13 @@ class MainController {
                 CompletableFuture
                     .supplyAsync { Platform.runLater { loadDataButton.isDisable = false } }
             ) { it, _ -> it.compute() }
-            .thenRun { Platform.runLater { Router.primaryStage.isResizable = true } }
+            .thenRun {
+                Platform.runLater {
+                    Router.primaryStage.isResizable = true
+                    exportImageButton.isDisable = false
+                }
+            }
             .handle { _, u -> u.printStackTrace() }
-
-
     }
 
     @FXML
@@ -83,6 +95,23 @@ class MainController {
 
     @FXML
     private fun exportImage() {
+        if (!this::canvas.isInitialized)
+            return
 
+        val chooser = FileChooser()
+        chooser.extensionFilters.add(FileChooser.ExtensionFilter(
+            "image files (*.png)", "*.png"
+        ))
+
+        var file = chooser.showSaveDialog(Router.primaryStage) ?: return
+
+        if (!file.name.toUpperCase().endsWith(".PNG"))
+            file = File(file.absolutePath + ".png")
+
+        val params = SnapshotParameters()
+        params.fill = Color.TRANSPARENT
+        val image = canvas.snapshot(params, null)
+
+        ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file)
     }
 }
