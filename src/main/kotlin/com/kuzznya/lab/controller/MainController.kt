@@ -49,6 +49,7 @@ class MainController {
     @FXML
     private fun loadData() {
         val file: File = FileChooser().showOpenDialog(Router.primaryStage.owner) ?: return
+        Router.primaryStage.title = file.name
         Router.primaryStage.isResizable = false
         loadDataButton.isDisable = true
 
@@ -60,7 +61,7 @@ class MainController {
 
         if (this::pool.isInitialized)
             pool.shutdown()
-        pool = Executors.newFixedThreadPool(3)
+        pool = Executors.newFixedThreadPool(4)
 
         computationTask = CompletableFuture
             .supplyAsync( Supplier { DataReader(file.path).loadData() }, pool)
@@ -70,7 +71,7 @@ class MainController {
                     .supplyAsync { Platform.runLater { loadDataButton.isDisable = false } }
             ) { it, _ -> it.compute() }
             .thenRun { Platform.runLater { Router.primaryStage.isResizable = true } }
-            .handleAsync { _, u -> u.printStackTrace() }
+            .handle { _, u -> u.printStackTrace() }
 
 
     }
