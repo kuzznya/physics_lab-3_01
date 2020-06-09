@@ -5,6 +5,7 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 import java.net.URL
+import kotlin.system.exitProcess
 
 object Router {
     lateinit var primaryStage: Stage
@@ -28,6 +29,10 @@ object Router {
         val scene = Scene(root)
         primaryStage.scene = scene
         primaryStage.show()
+        primaryStage.setOnCloseRequest {
+            javafx.application.Platform.exit()
+            exitProcess(0)
+        }
     }
 
 }
