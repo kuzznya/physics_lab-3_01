@@ -32,7 +32,7 @@ class DataReader(var path: String) {
             value = kotlin.runCatching {
                 var valueStr = str.split('+', '-')[0]
                 if (valueStr.last() == 'E')
-                    valueStr += str.split('+', '-')[1]
+                    valueStr += str[valueStr.length] + str.split('+', '-')[1]
                 return@runCatching valueStr.toDouble()
             } .getOrDefault(0.0)
 
