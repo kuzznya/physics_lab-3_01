@@ -109,7 +109,7 @@ class MainController {
             file = File(file.absolutePath + ".png")
 
         val params = SnapshotParameters()
-        params.fill = Color.TRANSPARENT
+        params.fill = Color.BLACK
         val image = canvas.snapshot(params, null)
 
         ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file)
