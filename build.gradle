@@ -1,18 +1,13 @@
 plugins {
-//    id 'java'
     id 'application'
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
     id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
-apply {
-    plugin "kotlin"
-}
-
 group 'com.kuzznya'
 version '0.0.1-SNAPSHOT'
 
-sourceCompatibility = 1.8
+mainClassName = 'com.kuzznya.lab.MainKt'
 
 javafx {
     version = "11.0.2"
@@ -24,7 +19,9 @@ jar {
     manifest {
         attributes 'Main-Class': 'com.kuzznya.lab.MainKt'
     }
-    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 repositories {
@@ -34,6 +31,9 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac"
 }
 
 compileKotlin {
